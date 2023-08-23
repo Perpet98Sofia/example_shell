@@ -31,4 +31,8 @@ void cd_only(list_t *env, char *current)
 int c_setenv(list_t **env, char *name, char *dir)
 char *c_strcat(char *dest, char *src)
 
+int find_env(list_t *env, char *str)
+int _unsetenv(list_t **env, char **str)
+int _setenv(list_t **env, char **str)
+
 #endif
