@@ -16,6 +16,13 @@ typedef struct list
     list_t *next;
 } list_t;
 
+typedef struct alias_struct
+{
+    char *name;
+    char *value;
+    alias_t *next;
+} alias_t;
+
 #define UNUSED(x) (void)(x)
 #define MAX_LINE_LENGTH 1024
 #define PROMPT "(simple-shell)~#\n$ "
@@ -44,6 +51,12 @@ void cd_only(list_t *env, char *current);
 int cd_execute(list_t *env, char *current, char *dir,
                 char *str, int num);
 int _cd(char **str, list_t *env, int num);
+/* -- alias command -- */
+int shellby_alias(char **args,
+                char __attribute__((__unused__)) **front);
+void set_alias(char *var_name, char *value);
+void print_alias(alias_t *alias);
+char **replace_aliases(char **args);
 
 /* Functions for env built-in */
 int find_env(list_t *env, char *str);
