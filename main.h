@@ -9,6 +9,12 @@
 #include <sys/wait.h>
 #include <stddef.h>
 
+typedef struct list
+{
+    char *var;
+    char *value;
+    list_t *next;
+} list_t;
 
 #define UNUSED(x) (void)(x)
 #define MAX_LINE_LENGTH 1024
@@ -24,6 +30,7 @@ void split_line(char *line, char **argv);
 
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
+char *get_env(char *str, list_t *env);
 
 
 #endif
