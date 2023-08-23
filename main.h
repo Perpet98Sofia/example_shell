@@ -9,6 +9,12 @@
 #include <sys/wait.h>
 #include <stddef.h>
 
+typedef struct list
+{
+    char *var;
+    char *value;
+    list_t *next;
+} list_t;
 
 #define UNUSED(x) (void)(x)
 #define MAX_LINE_LENGTH 1024
