@@ -25,14 +25,5 @@ void split_line(char *line, char **argv);
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
 
-int _cd(char **str, list_t *env, int num)
-int cd_execute(list_t *env, char *current, char *dir, char *str, int num)
-void cd_only(list_t *env, char *current)
-int c_setenv(list_t **env, char *name, char *dir)
-char *c_strcat(char *dest, char *src)
-
-int find_env(list_t *env, char *str)
-int _unsetenv(list_t **env, char **str)
-int _setenv(list_t **env, char **str)
 
 #endif
