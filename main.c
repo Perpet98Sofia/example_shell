@@ -23,21 +23,20 @@ int main(int ac, char **av, char *env[])
 		entry = malloc(MAX_LINE_LENGTH + 1);
 		if (entry == NULL)
 			return (-1);
-
 		if (is_interact)
 			print_string(PROMPT);
 		if (getline(&entry, &size, stdin) == -1)
 		{
 			if (feof(stdin))
 			{
-                free(entry);
-                exit(0);
-            }
+				free(entry);
+				exit(0);
+			}
 			else
 			{
-                free(entry);
-                exit(EXIT_FAILURE);
-            }
+				free(entry);
+				exit(EXIT_FAILURE);
+			}
 		}
 		split_line(entry, argv);  /* *argv = { entry, NULL} */
 		if (env)
@@ -46,11 +45,11 @@ int main(int ac, char **av, char *env[])
 				envp[i] = strdup(env[i]);
 		}
 		envp[i] = NULL;
-        if (access(entry, X_OK) == 0)
-		    execute(argv, envp);
-        else
-            print_string("./shell: No such file or directory\n");
-        free(entry);
+		if (access(entry, X_OK) == 0)
+			execute(argv, envp);
+		else
+			print_string("./shell: No such file or directory\n");
+		free(entry);
 	}
 	return (0);
 }

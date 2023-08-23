@@ -10,7 +10,7 @@ void split_line(char *line, char **argv)
 		i++;
 		argv[i] = strtok(NULL, "\n");
 	}
-    argv[i] = NULL;
+	argv[i] = NULL;
 }
 
 /**
