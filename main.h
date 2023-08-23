@@ -17,6 +17,7 @@
 /* Functions for printing */
 int print_string(const char *format);
 int _strncmp(char *s1, char *s2, int n);
+char *_strdup(char *str);
 
 /* Functions for handling commands */
 void split_line(char *line, char **argv);

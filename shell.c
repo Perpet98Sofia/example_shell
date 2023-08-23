@@ -31,7 +31,7 @@ void execute(char **argv, char *env[])
 		if (env)
 		{
 			for (i = 0; env[i]; i++)
-				envp[i] = strdup(env[i]);
+				envp[i] = _strdup(env[i]);
 		}
 		envp[i] = NULL;
 		env = envp;
