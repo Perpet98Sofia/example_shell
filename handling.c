@@ -94,3 +94,38 @@ char *_strdup(char *str)
 
 	return (buffer);
 }
+
+char *_strtok(char *buffer, char *delim)
+{
+	static char *next_token = NULL;
+	int k;
+	char *buf_cpy;
+
+	if (buffer != NULL)
+		next_token = buffer;
+
+	while (*next_token)
+	{
+		while (*delim)
+		{
+			if (*next_token == *delim)
+				break;
+			delim++;
+		}
+		if (*delim == '\0')
+			break;
+		next_token++;
+	}
+	buf_cpy = buffer;
+	if (buf_cpy[0] == '\0')
+		return (NULL);
+	while (*next_token != '\0' && strchr(delim, *next_token) == NULL)
+		next_token++;
+	if (*next_token != '\0')
+	{
+		*next_token = '\0';
+		next_token++;
+	}
+
+	return (buf_cpy);
+}
