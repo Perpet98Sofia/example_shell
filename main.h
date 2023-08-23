@@ -20,16 +20,42 @@ typedef struct list
 #define MAX_LINE_LENGTH 1024
 #define PROMPT "(simple-shell)~#\n$ "
 
-/* Functions for printing */
+/* Functions for handling char */
 int print_string(const char *format);
 int _strncmp(char *s1, char *s2, int n);
 char *_strdup(char *str);
+char *c_strdup(char *str, int cs);
+char *c_strcat(char *dest, char *src);
+void split_line(char *line, char **argv);
+/* -- getline function -- */
+void assign_lineptr(char **lineptr, size_t *n,
+                    char *buffer, size_t b);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 /* Functions for handling commands */
-void split_line(char *line, char **argv);
+char *_which(char *str, list_t *env);
+char *get_args(char *line, int *exe_ret);
+int call_args(char **args, char **front, int *exe_ret);
+int run_args(char **args, char **front, int *exe_ret);
+int handle_args(int *exe_ret);
+int check_args(char **args);
+/* -- cd command -- */
+void cd_only(list_t *env, char *current);
+int cd_execute(list_t *env, char *current, char *dir,
+                char *str, int num);
+int _cd(char **str, list_t *env, int num);
+
+/* Functions for env built-in */
+int find_env(list_t *env, char *str);
+char *get_env(char *str, list_t *env);
+int _unsetenv(list_t **env, char **str);
+int _setenv(list_t **env, char **str);
+
+/* Functions memory handling */
+void *_realloc(void *ptr, unsigned int old_size,
+                unsigned int new_size);
 
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
-char *get_env(char *str, list_t *env);
 
 #endif
