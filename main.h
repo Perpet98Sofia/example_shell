@@ -24,5 +24,6 @@ void split_line(char *line, char **argv);
 
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
+char *get_env(char *str, list_t *env);
 
 #endif
