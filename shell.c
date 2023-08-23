@@ -13,7 +13,7 @@ void execute(char **argv, char *env[])
 	int pid = 0, i = 0, status;
 	char *envp[MAX_LINE_LENGTH];
 
-	if (strncmp(argv[0], "/usr/bin/cd", 11) == 0)
+	if (_strncmp(argv[0], "/usr/bin/cd", 11) == 0)
 	{
 		if (argv[1])
 			chdir(argv[1]);
