@@ -58,6 +58,13 @@ void set_alias(char *var_name, char *value);
 void print_alias(alias_t *alias);
 char **replace_aliases(char **args);
 
+/* -- alias command -- */
+int shellby_alias(char **args,
+                char __attribute__((__unused__)) **front);
+void set_alias(char *var_name, char *value);
+void print_alias(alias_t *alias);
+char **replace_aliases(char **args);
+
 /* Functions for env built-in */
 int find_env(list_t *env, char *str);
 char *get_env(char *str, list_t *env);
@@ -70,6 +77,5 @@ void *_realloc(void *ptr, unsigned int old_size,
 
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
-
 
 #endif
