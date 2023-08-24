@@ -16,6 +16,13 @@ typedef struct list
     list_t *next;
 } list_t;
 
+typedef struct alias_struct
+{
+    char *name;
+    char *value;
+    alias_t *next;
+} alias_t;
+
 #define UNUSED(x) (void)(x)
 #define MAX_LINE_LENGTH 1024
 #define PROMPT "(simple-shell)~#\n$ "
@@ -64,6 +71,5 @@ void *_realloc(void *ptr, unsigned int old_size,
 
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
-
 
 #endif
