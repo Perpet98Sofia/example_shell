@@ -14,16 +14,16 @@
 
 typedef struct list
 {
-    char *var;
-    char *value;
-    list_t *next;
+char *var;
+char *value;
+list_t *next;
 } list_t;
 
 typedef struct alias_struct
 {
-    char *name;
-    char *value;
-    alias_t *next;
+char *name;
+char *value;
+alias_t *next;
 } alias_t;
 
 /**
