@@ -97,7 +97,7 @@ char *_strdup(char *str)
 
 char *_strtok(char *buffer, char *delim)
 {
-	static char *next_token = NULL;
+	static char *next_token;
 	int k;
 	char *buf_cpy;
 
