@@ -9,6 +9,9 @@
 #include <sys/wait.h>
 #include <stddef.h>
 
+#define END_OF_FILE -2
+#define EXIT -3
+
 typedef struct list
 {
     char *var;
@@ -22,6 +25,17 @@ typedef struct alias_struct
     char *value;
     alias_t *next;
 } alias_t;
+
+/**
+ * struct list_s - A new struct type defining a linked list.
+ * @dir: A directory path.
+ * @next: A pointer to another struct list_s.
+ */
+typedef struct list_s
+{
+	char *dir;
+	struct list_s *next;
+} list_t;
 
 #define UNUSED(x) (void)(x)
 #define MAX_LINE_LENGTH 1024
@@ -64,6 +78,15 @@ int find_env(list_t *env, char *str);
 char *get_env(char *str, list_t *env);
 int _unsetenv(list_t **env, char **str);
 int _setenv(list_t **env, char **str);
+
+char **_str_tok(char *str, char *delm);
+char **c_str_void free_double_ptr(char **str);
+void free_double_ptr(char **str);
+int _strlen(const char *s);
+char *_strcat(char *dest, const char *src);
+char *_strncat(char *dest, const char *src,
+void handle_line(char **line, ssize_t read);
+int (*get_builtin(char *command))(char **args, char **front);
 
 /* Functions memory handling */
 void *_realloc(void *ptr, unsigned int old_size,
