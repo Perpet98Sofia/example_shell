@@ -50,7 +50,7 @@ char *c_strcat(char *dest, char *src);
 void split_line(char *line, char **argv);
 /* -- getline function -- */
 void assign_lineptr(char **lineptr, size_t *n,
-                    char *buffer, size_t b);
+char *buffer, size_t b);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 /* Functions for handling commands */
@@ -63,12 +63,12 @@ int check_args(char **args);
 /* -- cd command -- */
 void cd_only(list_t *env, char *current);
 int cd_execute(list_t *env, char *current, char *dir,
-                char *str, int num);
+char *str, int num);
 int _cd(char **str, list_t *env, int num);
 
 /* -- alias command -- */
 int shellby_alias(char **args,
-                char __attribute__((__unused__)) **front);
+char __attribute__((__unused__)) **front);
 void set_alias(char *var_name, char *value);
 void print_alias(alias_t *alias);
 char **replace_aliases(char **args);
@@ -90,7 +90,7 @@ int (*get_builtin(char *command))(char **args, char **front);
 
 /* Functions memory handling */
 void *_realloc(void *ptr, unsigned int old_size,
-                unsigned int new_size);
+unsigned int new_size);
 
 /* Main function: For executing commands */
 void execute(char **argv, char *env[]);
