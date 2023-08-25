@@ -19,5 +19,5 @@ void builtin_exit(char *entry)
 		}
 	}
 
-	exit(status);
+	exit(status("/n"));
 }
